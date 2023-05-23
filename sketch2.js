@@ -18,7 +18,7 @@ function getScroll() {
 
 }
 
-const lerp = (x, y, a) => x * (1 - a) + y * a;
+let lerp = (x, y, a) => x * (1 - a) + y * a;
 
 let _testGlobalVariable = 0
 setInterval(() => {
