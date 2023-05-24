@@ -1,21 +1,21 @@
 // FIXME: everything that is not, could be called out of anywhere, meaning it could be a global variable
-function getScroll() {
+// function getScroll() {
 
-  const docHeight = document.body.clientHeight
+//   const docHeight = document.body.clientHeight
 
-  var sy, d = document,
-    r = d.documentElement,
-    vh = d.documentElement.clientHeight,
-    b = d.body;
-  sy = r.scrollTop || b.scrollTop || 0;
+//   var sy, d = document,
+//     r = d.documentElement,
+//     vh = d.documentElement.clientHeight,
+//     b = d.body;
+//   sy = r.scrollTop || b.scrollTop || 0;
 
-  // normalize values to 0 - 1
-  sy /= (docHeight - vh)
-  return sy;
+//   // normalize values to 0 - 1
+//   sy /= (docHeight - vh)
+//   return sy;
 
-}
+// }
 
-const lerp = (x, y, a) => x * (1 - a) + y * a;
+// const lerp = (x, y, a) => x * (1 - a) + y * a;
 let _scrollZoom = 0
 
 // setInterval(() => {
