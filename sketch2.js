@@ -1,7 +1,4 @@
 // FIXME: everything that is not, could be called out of anywhere, meaning it could be a global variable
-// example START
-// example START
-// example START
 function getScroll() {
 
   const docHeight = document.body.clientHeight
@@ -18,20 +15,17 @@ function getScroll() {
 
 }
 
-let lerp = (x, y, a) => x * (1 - a) + y * a;
+const lerp = (x, y, a) => x * (1 - a) + y * a;
+let _scrollZoom = 0
 
-let _testGlobalVariable = 0
-setInterval(() => {
-  // make value from -1 to 1
-  const a = ((getScroll() - .5) * 2)
-  const b = a * 500
-  // smooth out value
-  _testGlobalVariable = lerp(_testGlobalVariable, b, 0.05)
-  console.log(_testGlobalVariable)
-}, 10)
-// example END
-// example END
-// example END
+// setInterval(() => {
+//   // make value from -1 to 1
+//   const a = ((getScroll() - .5) * 2)
+//   const b = a * 500
+//   // smooth out value
+//   _scrollZoom = lerp( _scrollZoom, b, 0.05)
+//   console.log(_scrollZoom)
+// }, 10)
 
 
 
@@ -205,13 +199,13 @@ let bunsenSketch = function (p) {
       let percent = _currentFrame / (_totalStartFrames - 1)
       percent = normalizedErf(percent)
       // TODO: here you can change the parameters 
-      _params.spiralZoom = p.map(percent, 0, 1, 0, 700) + _testGlobalVariable
+      _params.spiralZoom = p.map(percent, 0, 1, 0, 700) + _scrollZoom
       _spiralLength = p.map(percent, 0, 1, 0, 3)
       _currentFrame++
     } else {
       // loop animation
       const percent = (_loopFrame % _totalLoopAnimation) / (_totalLoopAnimation - 1)
-      _params.spiralZoom = p.map(p.sin(percent * p.TWO_PI + p.PI / 2), -1, 1, 650, 700) + _testGlobalVariable
+      _params.spiralZoom = p.map(p.sin(percent * p.TWO_PI + p.PI / 2), -1, 1, 650, 700) + _scrollZoom
       _spiralLength = p.map(p.cos(percent * p.TWO_PI), -1, 1, 2.8, 3)
       _loopFrame++
 
